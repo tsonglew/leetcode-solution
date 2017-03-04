@@ -15,13 +15,12 @@ public:
             colCount[i] = 0;
         }
         int charsCount = 0;
-        
+
         while(charsCount < stringLength){
             int rowCount = 0;
             while(rowCount < size&&charsCount < stringLength){
                 if(rowCount%2==0&&colCount[rowCount]%2!=0){
                     arr[rowCount]->push_back(' ');
-                    
                 } else {
                     arr[rowCount]->push_back(s[charsCount]);
                     charsCount++;
@@ -39,6 +38,8 @@ public:
                 col++;
             }
         }
+        for(int i=0; i<size; i++)
+            delete arr[i];
         return result;
     }
 };
