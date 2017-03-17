@@ -6,40 +6,29 @@ class Solution {
 public:
     string convert(string s, int numRows) {
         string result;
-        const int size = numRows;
-        const int stringLength = static_cast<int>(s.length());
-        vector<char>* arr[size];
-        int colCount[size];
-        for(int i=0; i<size; i++){
-            arr[i] = new vector<char>;
-            colCount[i] = 0;
+        int sec_size = 2*numRows - 2;
+        if(sec_size==0) {
+            return s;
         }
-        int charsCount = 0;
-
-        while(charsCount < stringLength){
-            int rowCount = 0;
-            while(rowCount < size&&charsCount < stringLength){
-                if(rowCount%2==0&&colCount[rowCount]%2!=0){
-                    arr[rowCount]->push_back(' ');
-                } else {
-                    arr[rowCount]->push_back(s[charsCount]);
-                    charsCount++;
+        int str_length = static_cast<int>(s.length());
+        int sec_nums = str_length / sec_size + 1;
+        int sec_count = 0;
+        int m = 0;
+        while(m < numRows) {
+            sec_count = 0;
+            while(sec_count<sec_nums){
+                int first = sec_count*sec_size + m;
+                int last = (sec_count+1)*sec_size - m;
+                if (first < str_length) {
+                    result.push_back(s[first]);
                 }
-                colCount[rowCount]++;
-                rowCount++;
+                if (last<(sec_count+1)*sec_size && last < str_length && first!=last) {
+                    result.push_back(s[last]);
+                }
+                sec_count++;
             }
+            m++;
         }
-        for(int i=0; i<size; i++){
-            int col = 0;
-            while(col<colCount[i]){
-                char toAppend = (*arr[i])[col];
-                if(toAppend!=' ')
-                    result.append(&toAppend);
-                col++;
-            }
-        }
-        for(int i=0; i<size; i++)
-            delete arr[i];
         return result;
     }
 };
