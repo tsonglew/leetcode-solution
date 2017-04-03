@@ -1,6 +1,4 @@
-j
-
-## Title: 3Sum
+## Title: Merge k Sorted Lists
 
 ### URL:https://leetcode.com/problems/merge-k-sorted-lists/
 ### Difficulty: Hard
