@@ -1,3 +1,3 @@
 # leetcode-solution
 
-LeetCode Algorithm C++ Solutions
+Medium & Hard Ones with C++ Solutions
