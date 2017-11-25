@@ -25,3 +25,9 @@ void show_vector(vector<T>& v) {
         }
         cout << endl;
 }
+
+int main() {
+    vector<int>v = {1,2,3};
+    show_vector(v);
+    return 0;
+}
