@@ -1,3 +1,3 @@
 # leetcode-solution
 
-Medium & Hard Ones with C++\Golang Solutions
+leetcode solutions with C++/Golang/Java
