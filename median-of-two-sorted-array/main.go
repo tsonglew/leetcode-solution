@@ -26,35 +26,22 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		i = int((imin + imax) / 2)
 		j = int((len(nums1)+len(nums2)-4)/2) - i
 	}
-	var m, n, p, q int
-	n = nums1[i+1]
-	m = nums1[i]
-	p = nums2[j]
-	q = nums2[j+1]
 	if (lenSum)%2 == 0 {
-		return float64(max(m, p)+min(n, q)) / 2
+		return float64(max(nums1[i], nums2[j])+min(nums1[i+1], nums2[j+1])) / 2
 	}
-	return float64(min(n, q))
+	return float64(min(nums1[i+1], nums2[j+1]))
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
 }
 
 func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func main() {
-	//fmt.Println(findMedianSortedArrays([]int{1, 3}, []int{2}))
-	//fmt.Println(findMedianSortedArrays([]int{1, 2}, []int{3, 4}))
-	// fmt.Println(findMedianSortedArrays([]int{3, 4}, []int{1, 2}))
-	// fmt.Println(findMedianSortedArrays([]int{3}, []int{-2, -1}))
-	//fmt.Println(findMedianSortedArrays([]int{}, []int{1, 2, 3, 4}))
-	fmt.Println(findMedianSortedArrays([]int{3}, []int{1, 2, 4, 5}))
+    if a < b {
+        return a
+    }
+    return b
 }
