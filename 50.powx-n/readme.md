@@ -1,66 +1,24 @@
-## Title: Regular Expression Matching
+## Title: Pow(x, n)
 
-### URL:https://leetcode.com/problems/regular-expression-matching/
-### Difficulty: Hard
+### URL:https://leetcode.com/problems/powx-n/
+### Difficulty: Medium
 
-Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.
-
-```
-'.' Matches any single character.
-'*' Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).
-```
-
-Note:
-
-* s could be empty and contains only lowercase letters a-z.
-* p could be empty and contains only lowercase letters a-z, and characters like . or *.
+Implement pow(x, n), which calculates x raised to the power n (xn).
 
 Example 1:
 
-```
-Input:
-s = "aa"
-p = "a"
-Output: false
-Explanation: "a" does not match the entire string "aa".
-```
-
+Input: 2.00000, 10
+Output: 1024.00000
 Example 2:
 
-```
-Input:
-s = "aa"
-p = "a*"
-Output: true
-Explanation: '*' means zero or more of the precedeng element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
-```
-
+Input: 2.10000, 3
+Output: 9.26100
 Example 3:
 
-```
-Input:
-s = "ab"
-p = ".*"
-Output: true
-Explanation: ".*" means "zero or more (*) of any character (.)".
-```
+Input: 2.00000, -2
+Output: 0.25000
+Explanation: 2-2 = 1/22 = 1/4 = 0.25
+Note:
 
-Example 4:
-
-```
-Input:
-s = "aab"
-p = "c*a*b"
-Output: true
-Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches "aab".
-```
-
-Example 5:
-
-```
-Input:
-s = "mississippi"
-p = "mis*is*p*."
-Output: false
-```
+-100.0 < x < 100.0
+n is a 32-bit signed integer, within the range [−231, 231 − 1]
