@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 class Solution:
     def groupAnagrams(self, strs):
         """
