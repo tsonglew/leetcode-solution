@@ -7,10 +7,10 @@ const (
 	UP
 )
 
-func main(){}
+func main() {}
 
 func spiralOrder(matrix [][]int) []int {
-	if len(matrix) <=0 || len(matrix[0]) <= 0 {
+	if len(matrix) <= 0 || len(matrix[0]) <= 0 {
 		return []int{}
 	}
 	result := make([]int, len(matrix)*len(matrix[0]))
@@ -22,7 +22,7 @@ func spiralOrder(matrix [][]int) []int {
 	i, j, cnt := 0, 0, 0
 
 	for {
-		if i>=len(matrix) || i<0 || j>=len(matrix[0]) || j<0|| m[i][j] == 1 {
+		if i >= len(matrix) || i < 0 || j >= len(matrix[0]) || j < 0 || m[i][j] == 1 {
 			break
 		}
 		result[cnt] = matrix[i][j]
