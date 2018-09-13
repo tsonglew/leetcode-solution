@@ -4,11 +4,6 @@ import (
 	"strings"
 )
 
-type Interval struct {
-	Start int
-	End   int
-}
-
 func lengthOfLastWord(s string) int {
 	wordSlice := strings.Split(strings.Trim(s, " "), " ")
 	if len(wordSlice) < 1 {
