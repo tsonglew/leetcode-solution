@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestClimbStairs(t *testing.T) {
+func TestSimplyfyPath(t *testing.T) {
 	tables := []struct {
 		in, out string
 	}{
