@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestClimbStairs(t *testing.T) {
+func TestMinDistance(t *testing.T) {
 	tables := []struct {
 		word1, word2 string
 		output       int
