@@ -19,15 +19,7 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 		}
 	}
 
-	leftPreorder, rightPreorder := []int{}, []int{}
-
-	leftPreorder = preorder[1 : currentNodeIndex+1]
-	rightPreorder = preorder[currentNodeIndex+1 : len(preorder)]
-
-	leftInorder := inorder[0:currentNodeIndex]
-	rightInorder := inorder[currentNodeIndex+1 : len(inorder)]
-
-	currentNode.Left = buildTree(leftPreorder, leftInorder)
-	currentNode.Right = buildTree(rightPreorder, rightInorder)
+	currentNode.Left = buildTree(preorder[1:currentNodeIndex+1], inorder[0:currentNodeIndex])
+	currentNode.Right = buildTree(preorder[currentNodeIndex+1:len(preorder)], inorder[currentNodeIndex+1:len(inorder)])
 	return currentNode
 }
