@@ -1,4 +1,4 @@
-func lengthOfLISMethod1(nums []int) int {
+func lengthOfLIS(nums []int) int {
     if len(nums) == 0 {
         return 0
     }
