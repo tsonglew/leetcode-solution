@@ -6,7 +6,8 @@
  *     Right *TreeNode
  * }
  */
- func countNodes(root *TreeNode) int {
+ // method 1
+ func countNodes1(root *TreeNode) int {
     if root == nil {
         return 0
     }
@@ -31,4 +32,12 @@
         q = q[1:]
     }
     return cnt
+}
+
+// method 2
+func countNodes2(root *TreeNode) int {
+    if root == nil {
+        return 0
+    }
+    return 1+countNodes(root.Left)+countNodes(root.Right)
 }
