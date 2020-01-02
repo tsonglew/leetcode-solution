@@ -10,6 +10,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// DFS
 func inorderTraversal(root *TreeNode) []int {
 	result := &[]int{}
 
@@ -33,4 +34,26 @@ func travelSub(root *TreeNode, result *[]int) {
 	if root.Right != nil {
 		travelSub(root.Right, result)
 	}
+}
+
+// Morris Traversal
+func inorderTraversal(root *TreeNode) []int {
+    result := []int{}
+    cur := root
+	for cur != nil {
+		if cur.Left == nil {
+			result = append(result, cur.Val)
+			cur = cur.Right
+		} else {
+			p := cur.Left
+			for p.Right != nil {
+				p = p.Right
+			}
+			p.Right = cur
+			next := cur.Left
+			cur.Left = nil
+			cur = next
+		}
+    }
+    return result
 }
