@@ -1,3 +1,4 @@
+# method 1. DFS
 type Course struct {
 	Prevs []int
 	NextCnt int
@@ -55,4 +56,41 @@ func dfs(courseIdx int, result *[]int, courses *[]*Course) bool {
 	(*courses)[courseIdx] = nil
 	*result = append(*result, courseIdx)
 	return true
+}
+
+# method 2. kahn algorithm
+func findOrder(numCourses int, prerequisites [][]int) []int {
+    afterCourses := make([][]int, numCourses)
+    for i := range afterCourses {
+        afterCourses[i] = []int{}
+    }
+    preCount := make([]int, numCourses)
+    for i := range prerequisites {
+        afterCourses[prerequisites[i][1]] = append(afterCourses[prerequisites[i][1]], prerequisites[i][0])
+        preCount[prerequisites[i][0]] ++
+    }
+    q := []int{}
+    for i, v := range preCount {
+        if v == 0 {
+            q = append(q, i)
+        }
+    }
+    result := []int{}
+    for len(q) > 0 {
+        nq := []int{}
+        for _, n := range q {
+            result = append(result, n)
+            for _, j := range afterCourses[n] {
+                preCount[j] --
+                if preCount[j] == 0 {
+                    nq = append(nq, j)
+                }
+            }
+        }
+        q = nq
+    }
+    if len(result) == numCourses {
+        return result
+    }
+    return []int{}
 }
