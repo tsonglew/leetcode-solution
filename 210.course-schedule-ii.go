@@ -1,4 +1,4 @@
-# method 1. DFS
+// method 1. DFS
 type Course struct {
 	Prevs []int
 	NextCnt int
@@ -58,7 +58,7 @@ func dfs(courseIdx int, result *[]int, courses *[]*Course) bool {
 	return true
 }
 
-# method 2. kahn algorithm
+// method 2. kahn algorithm
 func findOrder(numCourses int, prerequisites [][]int) []int {
     afterCourses := make([][]int, numCourses)
     for i := range afterCourses {
