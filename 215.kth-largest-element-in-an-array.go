@@ -1,34 +1,31 @@
-// heap like
 func findKthLargest(nums []int, k int) int {
-	for c := k; c > 0; c-- {
-
-		for i := len(nums) - 1; i >= 0; i-- {
-			sortChild(nums, i)
-		}
-		if c == 1 {
-			return nums[0]
-		}
-		nums[0], nums[len(nums)-1] = nums[len(nums)-1], nums[0]
-		nums = nums[0 : len(nums)-1]
+	buildHeap(nums, len(nums))
+	for i := 0; i < k; i++ {
+		nums[0], nums[len(nums)-i-1] = nums[len(nums)-i-1], nums[0]
+		heapify(nums, 0, len(nums)-i-1)
 	}
-	return -1
+	return nums[len(nums)-k]
 }
 
-func sortChild(nums []int, k int) {
-	leftChildIdx := k*2 + 1
-	rightChildIdx := k*2 + 2
-	nextIdx := k
-	if leftChildIdx < len(nums) && nums[nextIdx] < nums[leftChildIdx] {
-		nextIdx = leftChildIdx
+func buildHeap(heap []int, n int) {
+	for i := (n-1)/2; i >= 0; i-- {
+		heapify(heap, i, len(heap))
 	}
-	if rightChildIdx < len(nums) && nums[nextIdx] < nums[rightChildIdx] {
-		nextIdx = rightChildIdx
-	}
-	if nextIdx == k {
-		return
-	}
-	nums[nextIdx], nums[k] = nums[k], nums[nextIdx]
-	sortChild(nums, nextIdx)
 }
 
-// quicksort like
+func heapify(heap []int, i, n int) {
+	for {
+		maxPos := i
+		if i*2+1 < n && heap[i*2+1] > heap[maxPos] {
+			maxPos = i*2+1
+		}
+		if i*2+2 < n && heap[i*2+2] > heap[maxPos] {
+			maxPos = i*2+2
+		}
+		if maxPos == i {
+			break
+		}
+		heap[i], heap[maxPos] = heap[maxPos], heap[i]
+		i = maxPos
+	}
+}
