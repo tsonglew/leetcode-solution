@@ -1,16 +1,8 @@
 class Solution:
-    def digitsNum(self, n):
-        cnt = 0
-        while n:
-            n //= 10
-            cnt += 1
-        return cnt
-
     def seqDigits(self, n, min_value, max_value):
         s = []
         for i in range(1, 11-n):
-            num = 0
-            b = i
+            num, b = 0, i
             for j in range(n):
                 num = 10*num + b
                 if num > max_value:
@@ -22,8 +14,5 @@ class Solution:
         return s
                 
     def sequentialDigits(self, low: int, high: int) -> List[int]:
-        m, n = self.digitsNum(low), self.digitsNum(high)
-        res = []
-        for i in range(m, n+1):
-            res.extend(self.seqDigits(i, low, high))
-        return res
+        return reduce(lambda x, y: x+y, map(lambda x: self.seqDigits(x, low, high), range(len(str(low)), len(str(high))+1)))
+
