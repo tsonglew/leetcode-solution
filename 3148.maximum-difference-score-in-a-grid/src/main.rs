@@ -9,10 +9,17 @@ impl Solution {
                 let mut r_val = -100000;
                 let mut d_val = -100000;
                 if i < mem.len() - 1 {
+<<<<<<< HEAD
                     d_val = grid[i + 1][j] + mem[i + 1][j] - grid[i][j];
                 }
                 if j < mem[0].len() - 1 {
                     r_val = grid[i][j + 1] + mem[i][j + 1] - grid[i][j];
+=======
+                    d_val = grid[i+1][j] + mem[i+1][j] - grid[i][j];
+                }
+                if j < mem[0].len() - 1 {
+                    r_val = grid[i][j+1] + mem[i][j+1] - grid[i][j];
+>>>>>>> 6735c35a4defd71f499f65310bfb3ebcbc982df0
                 }
                 mem[i][j] = cmp::max(r_val, cmp::max(0, d_val));
             }
@@ -24,10 +31,17 @@ impl Solution {
                 let mut r_val = -100000;
                 let mut d_val = -100000;
                 if i < mem.len() - 1 {
+<<<<<<< HEAD
                     d_val = mem[i + 1][j] + (grid[i + 1][j] - grid[i][j]);
                 }
                 if j < mem[0].len() - 1 {
                     r_val = mem[i][j + 1] + (grid[i][j + 1] - grid[i][j]);
+=======
+                    d_val = mem[i+1][j] + (grid[i+1][j]-grid[i][j]);
+                }
+                if j < mem[0].len() - 1 {
+                    r_val = mem[i][j+1] + (grid[i][j+1]-grid[i][j]);
+>>>>>>> 6735c35a4defd71f499f65310bfb3ebcbc982df0
                 }
                 res = cmp::max(res, cmp::max(r_val, d_val));
             }
