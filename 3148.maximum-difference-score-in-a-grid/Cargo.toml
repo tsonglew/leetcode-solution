@@ -3,9 +3,4 @@ name = "maximum-difference-score-in-a-grid"
 version = "0.1.0"
 edition = "2021"
 
-<<<<<<< HEAD
-=======
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
->>>>>>> 6735c35a4defd71f499f65310bfb3ebcbc982df0
 [dependencies]
