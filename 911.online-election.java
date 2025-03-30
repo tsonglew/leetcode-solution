@@ -36,3 +36,12 @@ class TopVotedCandidate {
         return this.top[ans];
 
     }
+
+
+    private void printString() {
+        for (int i = 0; i < this.top.length; i++) {
+            System.out.printf("%d ", this.top[i]);
+        }
+        System.out.println();
+    }
+}
